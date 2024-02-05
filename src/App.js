@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+    import React, {Component, Fragment} from 'react';
+    import './App.css';
+    import Todo from "./components/Todo/Todo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    export default class App extends Component {
+        state = {
+            list: [
+                {
+                    id: 1,
+                    title: `Task 1`
+                },
+                {
+                    id: 2,
+                    title: `Task 2`
+                },
+                {
+                    id: 3,
+                    title: `Task 3`
+                },
+                {
+                    id: 4,
+                    title: `Task 4`
+                }
+            ]
+        }
+        render() {
+            const { list } = this.state;
 
-export default App;
+            return (
+                <Fragment>
+                <Todo list={list}/>
+                </Fragment>
+            );
+        }
+    }
+
